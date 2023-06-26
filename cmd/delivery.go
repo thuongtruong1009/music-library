@@ -3,22 +3,24 @@ package cmd
 import (
 	"music-management/pkg/helpers"
 	"music-management/pkg/constants"
-	"music-management/internal/handlers"
 
+	"music-management/internal/tracks"
+	"music-management/internal/playlists"
+	"music-management/internal/albums"
 	"music-management/internal/artists"
 	"music-management/internal/genres"
 )
 
 type Delivery struct {
-	albumHandler handlers.AlbumHandler
+	albumHandler albums.AlbumHandler
 	artistHandler artists.ArtistHandler
 	genreHandler genres.GenreHandler
-	playlistHandler handlers.PlaylistHandler
-	trackHandler handlers.TrackHandler
+	playlistHandler playlists.PlaylistHandler
+	trackHandler tracks.TrackHandler
 	helper helpers.Helper
 }
 
-func NewDelivery(albumHandler handlers.AlbumHandler, artistHandler artists.ArtistHandler, genreHandler genres.GenreHandler, playlistHandler handlers.PlaylistHandler, trackHandler handlers.TrackHandler, helper helpers.Helper) *Delivery {
+func NewDelivery(albumHandler albums.AlbumHandler, artistHandler artists.ArtistHandler, genreHandler genres.GenreHandler, playlistHandler playlists.PlaylistHandler, trackHandler tracks.TrackHandler, helper helpers.Helper) *Delivery {
 	return &Delivery{
 		albumHandler: albumHandler,
 		artistHandler: artistHandler,

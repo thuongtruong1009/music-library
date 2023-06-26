@@ -2,7 +2,7 @@ package artists
 
 import (
 	"fmt"
-	"music-management/internal/models"
+	"music-management/models"
 	"music-management/pkg/helpers"
 	"music-management/pkg/constants"
 )

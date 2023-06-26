@@ -65,6 +65,7 @@ var options = []option{
 			{26: "Get all playlists"},
 			{27: "Get playlist by id"},
 			{28: "Delete playlist by id"},
+			{29: "Update playlist by id"},
 		},
 	},
 }

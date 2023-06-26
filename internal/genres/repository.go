@@ -3,9 +3,9 @@ package genres
 import (
 	"fmt"
 	"music-management/database"
+	"music-management/models"
 	"music-management/pkg/constants"
 	"music-management/pkg/helpers"
-	"music-management/internal/models"
 )
 
 type GenreRepository struct {

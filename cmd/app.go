@@ -1,19 +1,20 @@
 package cmd
 
 import (
-	"music-management/internal/handlers"
-	"music-management/internal/usecases"
-
 	"music-management/pkg/helpers"
+	"music-management/internal/tracks"
+	"music-management/internal/playlists"
 	"music-management/internal/artists"
 	"music-management/internal/genres"
+	"music-management/internal/albums"
 )
 
 func App() {
 	helper := helpers.NewHelper()
 
-	albumUC := usecases.NewAlbumUsecase()
-	albumHandler := handlers.NewAlbumHandler(*albumUC, *helper)
+	albumRepo := albums.NewAlbumRepository(*helper)
+	albumUC := albums.NewAlbumUsecase(*albumRepo, *helper)
+	albumHandler := albums.NewAlbumHandler(*albumUC, *helper)
 
 	artistRepo := artists.NewArtistRepository(*helper)
 	artistUC := artists.NewArtistUsecase(*artistRepo, *helper)
@@ -23,11 +24,13 @@ func App() {
 	genreUC := genres.NewGenreUsecase(*genreRepo, *helper)
 	genreHandler := genres.NewGenreHandler(*genreUC, *helper)
 
-	playlistUC := usecases.NewPlaylistUsecase()
-	playlistHandler := handlers.NewPlaylistHandler(*playlistUC, *helper)
+	playlistRepo := playlists.NewPlaylistRepository(*helper)
+	playlistUC := playlists.NewPlaylistUsecase(*playlistRepo, *helper)
+	playlistHandler := playlists.NewPlaylistHandler(*playlistUC, *helper)
 
-	trackUC := usecases.NewTrackUsecase()
-	trackHandler := handlers.NewTrackHandler(*trackUC, *helper)
+	trackRepo := tracks.NewTrackRepository(*helper)
+	trackUC := tracks.NewTrackUsecase(*trackRepo, *helper)
+	trackHandler := tracks.NewTrackHandler(*trackUC, *helper)
 
 
 	exe := NewDelivery(*albumHandler, *artistHandler, *genreHandler, *playlistHandler, *trackHandler, *helper)

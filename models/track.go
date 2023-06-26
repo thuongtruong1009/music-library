@@ -4,8 +4,8 @@ type Track struct {
 	ID string `json:"id"`
 	Title string `json:"title"`
 	Year int `json:"year"`
-	Duration int `json:"duration"`
+	Duration float32 `json:"duration"`
 	
-	GenreID int `json:"genre_id"`
-	ArtistID int `json:"artist_id"`
+	GenreID string `json:"genre_id"`
+	ArtistID string `json:"artist_id"`
 }
