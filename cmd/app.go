@@ -32,7 +32,6 @@ func App() {
 	trackUC := tracks.NewTrackUsecase(*trackRepo, *helper)
 	trackHandler := tracks.NewTrackHandler(*trackUC, *helper)
 
-
 	exe := NewDelivery(*albumHandler, *artistHandler, *genreHandler, *playlistHandler, *trackHandler, *helper)
 	
 	exe.Execution()

@@ -6,10 +6,10 @@ import (
 	"os"
 )
 
-func checkFile(filename string) error {
-	_, err := os.Stat(filename)
+func checkFile(path string) error {
+	_, err := os.Stat(path)
 	if os.IsNotExist(err) {
-		_, err := os.Create(filename)
+		_, err := os.Create(path)
 		if err != nil {
 			return err
 		}
