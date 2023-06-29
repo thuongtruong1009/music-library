@@ -68,7 +68,6 @@ func (p *PlaylistUsecase) CreatePlaylist() ([]string, string) {
 	newPlaylist := &models.Playlist{
 		ID: p.helper.GenerateID(),
 		Name: name,
-		Tracks: []string{},
 		Duration: duration,
 	}
 
@@ -115,7 +114,6 @@ func (p *PlaylistUsecase) UpdatePlaylist() ([]string, string) {
 	newPlaylist := &models.Playlist{
 		ID: id,
 		Name: name,
-		Tracks: []string{},
 		Duration: duration,
 	}
 

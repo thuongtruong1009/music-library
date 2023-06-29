@@ -79,8 +79,6 @@ func (p *PlaylistRepository) UpdatePlaylist(playlistUpdate *models.Playlist) (*m
 		return nil, fmt.Errorf("playlist not found")
 	}
 
-	playlistUpdate.Tracks = playlist.Tracks
-
 	allPlaylist, _ := p.GetPlaylists()
 
 	if allPlaylist == nil {

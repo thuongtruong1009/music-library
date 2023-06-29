@@ -7,6 +7,8 @@ import (
 	"music-management-system/internal/artists"
 	"music-management-system/internal/genres"
 	"music-management-system/internal/albums"
+	"music-management-system/internal/libraries"
+	"music-management-system/internal/users"
 )
 
 func App() {
@@ -32,7 +34,16 @@ func App() {
 	trackUC := tracks.NewTrackUsecase(*trackRepo, *helper)
 	trackHandler := tracks.NewTrackHandler(*trackUC, *helper)
 
-	exe := NewDelivery(*albumHandler, *artistHandler, *genreHandler, *playlistHandler, *trackHandler, *helper)
+	userRepo := users.NewUserRepository(*helper)
+	userUC := users.NewUserUsecase(*userRepo, *helper)
+	userHandler := users.NewUserHandler(*userUC, *helper)
+	
+	libraryRepo := libraries.NewLibraryRepository(*trackRepo, *userRepo, *helper)
+	libraryUC := libraries.NewLibraryUsecase(*libraryRepo, *helper)
+	libraryHandler := libraries.NewLibraryHandler(*libraryUC, *helper)
+
+
+	exe := NewDelivery(*albumHandler, *artistHandler, *genreHandler, *playlistHandler, *trackHandler, *libraryHandler, *userHandler, *helper)
 	
 	exe.Execution()
 }
