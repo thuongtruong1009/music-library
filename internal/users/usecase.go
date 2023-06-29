@@ -1,4 +1,4 @@
-package artists
+package users
 
 import (
 	"fmt"
@@ -7,20 +7,20 @@ import (
 	"music-management-system/pkg/constants"
 )
 
-type ArtistUsecase struct {
-	repo ArtistRepository
+type UserUsecase struct {
+	repo UserRepository
 	helper helpers.Helper
 }
 
-func NewArtistUsecase(repo ArtistRepository, helper helpers.Helper) *ArtistUsecase {
-	return &ArtistUsecase{
+func NewUserUsecase(repo UserRepository, helper helpers.Helper) *UserUsecase {
+	return &UserUsecase{
 		repo: repo,
 		helper: helper,
 	}
 }
 
-func (a *ArtistUsecase) GetArtists() ([]string, string) {
-	result, err := helpers.QueryTimeTwoOutput[[]*models.Artist](a.repo.GetArtists)()
+func (a *UserUsecase) GetUsers() ([]string, string) {
+	result, err := helpers.QueryTimeTwoOutput[[]*models.User](a.repo.GetUsers)()
 	if err != nil {
 		return nil, err.Error()
 	}
@@ -37,12 +37,12 @@ func (a *ArtistUsecase) GetArtists() ([]string, string) {
 	return output, ""
 }
 
-func (a *ArtistUsecase) GetArtist() ([]string, string) {
+func (a *UserUsecase) GetUser() ([]string, string) {
 	var id string
 	fmt.Print("» Enter ID: ")
 	fmt.Scanln(&id)
 
-	result, err := helpers.QueryTimeTwoOutputWithParams[*models.Artist, string](a.repo.GetArtist)(id)
+	result, err := helpers.QueryTimeTwoOutputWithParams[*models.User, string](a.repo.GetUser)(id)
 	if err != nil {
 		return nil, err.Error()
 	}
@@ -56,17 +56,17 @@ func (a *ArtistUsecase) GetArtist() ([]string, string) {
 	return output, ""
 }
 
-func (a *ArtistUsecase) CreateArtist() ([]string, string) {
+func (a *UserUsecase) CreateUser() ([]string, string) {
 	var name string
 	fmt.Print("» Enter name: ")
 	fmt.Scanln(&name)
 
-	artist := &models.Artist{
+	user := &models.User{
 		ID: a.helper.GenerateID(),
 		Name: name,
 	}
 
-	result, err := helpers.QueryTimeTwoOutputWithParams[*models.Artist, *models.Artist](a.repo.CreateArtist)(artist)
+	result, err := helpers.QueryTimeTwoOutputWithParams[*models.User, *models.User](a.repo.CreateUser)(user)
 	if err != nil {
 		return nil, err.Error()
 	}
@@ -80,12 +80,12 @@ func (a *ArtistUsecase) CreateArtist() ([]string, string) {
 	return output, ""
 }
 
-func (a *ArtistUsecase) DeleteArtist() error {
+func (a *UserUsecase) DeleteUser() error {
 	var id string
 	fmt.Print("» Enter ID: ")
 	fmt.Scanln(&id)
 
-	err := helpers.QueryTimeOneOutputWithParams[error](a.repo.DeleteArtist)(id)
+	err := helpers.QueryTimeOneOutputWithParams[error](a.repo.DeleteUser)(id)
 	if err != nil {
 		return err
 	}
@@ -93,7 +93,7 @@ func (a *ArtistUsecase) DeleteArtist() error {
 	return nil
 }
 
-func (a *ArtistUsecase) UpdateArtist() ([]string, string) {
+func (a *UserUsecase) UpdateUser() ([]string, string) {
 	var id string
 	fmt.Print("» Enter ID: ")
 	fmt.Scanln(&id)
@@ -102,12 +102,12 @@ func (a *ArtistUsecase) UpdateArtist() ([]string, string) {
 	fmt.Print("» Enter name: ")
 	fmt.Scanln(&name)
 
-	newArtist := &models.Artist{
+	newUser := &models.User{
 		ID: id,
 		Name: name,
 	}
 
-	result, err := helpers.QueryTimeTwoOutputWithParams[*models.Artist, *models.Artist](a.repo.UpdateArtist)(newArtist)
+	result, err := helpers.QueryTimeTwoOutputWithParams[*models.User, *models.User](a.repo.UpdateUser)(newUser)
 	if err != nil {
 		return nil, err.Error()
 	}
@@ -119,12 +119,4 @@ func (a *ArtistUsecase) UpdateArtist() ([]string, string) {
 	output := []string{fmt.Sprintf("ID: %s", result.ID)}
 
 	return output, ""
-}
-
-func (a *ArtistUsecase) GetAlbumsOfArtist() string {
-	return "Albums of Artist"
-}
-
-func (a *ArtistUsecase) GetTracksOfArtist() string {
-	return "Tracks of Artist"
 }

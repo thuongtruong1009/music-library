@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/constants"
 )
 
 func (d *Delivery) Execution() {

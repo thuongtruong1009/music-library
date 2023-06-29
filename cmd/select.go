@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"strings"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/constants"
 	"github.com/AlecAivazis/survey/v2"
 	"golang.org/x/exp/slices"
 )
@@ -65,6 +65,22 @@ var options = []option{
 			{26: "Get all playlists"},
 			{27: "Get playlist by id"},
 			{28: "Delete playlist by id"},
+			{29: "Update playlist by id"},
+			
+			{30: "Add track to playlist"},
+			{31: "Get all tracks of playlist"},
+			{32: "Remove track from playlist"},
+			{33: "Get all playlists have track"},
+		},
+	},
+	{
+		Name: "user",
+		Items: []map[int8]string{
+			{34: "Create new user"},
+			{35: "Get all users"},
+			{36: "Get user by id"},
+			{37: "Delete user by id"},
+			{38: "Update user by id"},
 		},
 	},
 }

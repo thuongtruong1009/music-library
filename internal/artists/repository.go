@@ -2,10 +2,10 @@ package artists
 
 import (
 	"fmt"
-	"music-management/database"
-	"music-management/pkg/constants"
-	"music-management/internal/models"
-	"music-management/pkg/helpers"
+	"music-management-system/models"
+	"music-management-system/database"
+	"music-management-system/pkg/constants"
+	"music-management-system/pkg/helpers"
 )
 
 type ArtistRepository struct {
@@ -32,10 +32,7 @@ func (a *ArtistRepository) GetArtists() ([]*models.Artist, error) {
 }
 
 func (a *ArtistRepository) GetArtist(artistID string) (*models.Artist, error) {
-	allArtist, err := a.GetArtists()
-	if err != nil {
-		return nil, err
-	}
+	allArtist, _ := a.GetArtists()
 
 	if allArtist == nil {
 		return nil, nil

@@ -6,4 +6,6 @@ const (
 	ARTIST_PATH string = "database/artists.json"
 	ALBUM_PATH string = "database/albums.json"
 	PLAYLIST_PATH string = "database/playlists.json"
+	LIBRARY_PATH string = "database/libraries.json"
+	USER_PATH string = "database/users.json"
 )
