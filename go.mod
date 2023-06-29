@@ -1,4 +1,4 @@
-module music-management
+module music-management-system
 
 go 1.20
 

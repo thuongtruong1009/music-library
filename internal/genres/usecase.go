@@ -2,9 +2,9 @@ package genres
 
 import (
 	"fmt"
-	"music-management/models"
-	"music-management/pkg/constants"
-	"music-management/pkg/helpers"
+	"music-management-system/models"
+	"music-management-system/pkg/constants"
+	"music-management-system/pkg/helpers"
 )
 
 type GenreUsecase struct {

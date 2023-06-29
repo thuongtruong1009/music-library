@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"music-management/pkg/constants"
+	"music-management-system/pkg/constants"
 )
 
 func (h *Helper) OutputColor(level int8) string {

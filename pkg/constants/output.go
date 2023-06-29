@@ -15,4 +15,17 @@ const (
 const (
 	NOT_FOUND_DATA string = "Not found data"
 	EMPTY_DATA string = "Empty data"
+	CANNOT_READ string = "Cannot retrive data"
+)
+
+const (
+	NOT_FOUND_TRACK string = "Not found track"
+)
+
+const (
+	NOT_FOUND_GENRE string = "Not found genre"
+)
+
+const (
+	NOT_FOUND_ARTIST string = "Not found artist"
 )

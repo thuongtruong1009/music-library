@@ -2,10 +2,10 @@ package albums
 
 import (
 	"fmt"
-	"music-management/database"
-	"music-management/models"
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/database"
+	"music-management-system/models"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 )
 
 type AlbumRepository struct {

@@ -2,10 +2,10 @@ package playlists
 
 import (
 	"fmt"
-	"music-management/models"
-	"music-management/database"
-	"music-management/pkg/constants"
-	"music-management/pkg/helpers"
+	"music-management-system/models"
+	"music-management-system/database"
+	"music-management-system/pkg/constants"
+	"music-management-system/pkg/helpers"
 )
 
 type PlaylistRepository struct {
@@ -70,6 +70,17 @@ func (p *PlaylistRepository) CreatePlaylist(newPlaylist *models.Playlist) (*mode
 }
 
 func (p *PlaylistRepository) UpdatePlaylist(playlistUpdate *models.Playlist) (*models.Playlist, error) {
+	playlist, err1 := p.GetPlaylist(playlistUpdate.ID)
+	if err1 != nil {
+		return nil, fmt.Errorf("failed to get playlist: %w", err1)
+	}
+
+	if playlist == nil {
+		return nil, fmt.Errorf("playlist not found")
+	}
+
+	playlistUpdate.Tracks = playlist.Tracks
+
 	allPlaylist, _ := p.GetPlaylists()
 
 	if allPlaylist == nil {
@@ -87,9 +98,9 @@ func (p *PlaylistRepository) UpdatePlaylist(playlistUpdate *models.Playlist) (*m
 
 	playlistInit = append(playlistInit, allPlaylist[len(allPlaylist):]...)
 
-	err := database.SaveDB[[]*models.Playlist](constants.PLAYLIST_PATH, playlistInit)
-	if err != nil {
-		return nil, fmt.Errorf("failed to save playlist: %w", err)
+	err2 := database.SaveDB[[]*models.Playlist](constants.PLAYLIST_PATH, playlistInit)
+	if err2 != nil {
+		return nil, fmt.Errorf("failed to save playlist: %w", err2)
 	}
 
 	return playlistUpdate, nil

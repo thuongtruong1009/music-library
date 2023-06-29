@@ -1,8 +1,8 @@
 package genres
 
 import (
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 )
 
 type GenreHandler struct {

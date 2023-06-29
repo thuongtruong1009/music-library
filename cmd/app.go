@@ -1,12 +1,12 @@
 package cmd
 
 import (
-	"music-management/pkg/helpers"
-	"music-management/internal/tracks"
-	"music-management/internal/playlists"
-	"music-management/internal/artists"
-	"music-management/internal/genres"
-	"music-management/internal/albums"
+	"music-management-system/pkg/helpers"
+	"music-management-system/internal/tracks"
+	"music-management-system/internal/playlists"
+	"music-management-system/internal/artists"
+	"music-management-system/internal/genres"
+	"music-management-system/internal/albums"
 )
 
 func App() {
@@ -28,7 +28,7 @@ func App() {
 	playlistUC := playlists.NewPlaylistUsecase(*playlistRepo, *helper)
 	playlistHandler := playlists.NewPlaylistHandler(*playlistUC, *helper)
 
-	trackRepo := tracks.NewTrackRepository(*helper)
+	trackRepo := tracks.NewTrackRepository(*genreRepo, *artistRepo, *helper)
 	trackUC := tracks.NewTrackUsecase(*trackRepo, *helper)
 	trackHandler := tracks.NewTrackHandler(*trackUC, *helper)
 

@@ -2,10 +2,10 @@ package artists
 
 import (
 	"fmt"
-	"music-management/models"
-	"music-management/database"
-	"music-management/pkg/constants"
-	"music-management/pkg/helpers"
+	"music-management-system/models"
+	"music-management-system/database"
+	"music-management-system/pkg/constants"
+	"music-management-system/pkg/helpers"
 )
 
 type ArtistRepository struct {

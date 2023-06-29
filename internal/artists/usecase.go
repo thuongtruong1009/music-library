@@ -2,9 +2,9 @@ package artists
 
 import (
 	"fmt"
-	"music-management/models"
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/models"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 )
 
 type ArtistUsecase struct {

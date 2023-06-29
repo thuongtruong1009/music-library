@@ -1,7 +1,7 @@
 package main
 
 import (
-	"music-management/cmd"
+	"music-management-system/cmd"
 )
 
 func main() {

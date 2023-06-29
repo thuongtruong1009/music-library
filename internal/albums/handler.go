@@ -1,8 +1,8 @@
 package albums
 
 import (
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 )
 
 type AlbumHandler struct {

@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"strings"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/constants"
 	"github.com/AlecAivazis/survey/v2"
 	"golang.org/x/exp/slices"
 )

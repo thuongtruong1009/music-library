@@ -1,8 +1,8 @@
 package playlists
 
 import (
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 )
 
 type PlaylistHandler struct {
@@ -64,7 +64,7 @@ func (u *PlaylistHandler) DeletePlaylist() {
 }
 
 func (u *PlaylistHandler) UpdatePlaylist() {
-	 result, err := u.uc.UpdatePlaylist()
+	result, err := u.uc.UpdatePlaylist()
 	if err != "" {
 		u.helper.OutputError(constants.UPDATE_FAILED, err)
 		return

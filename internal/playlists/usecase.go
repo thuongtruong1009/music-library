@@ -2,9 +2,9 @@ package playlists
 
 import (
 	"fmt"
-	"music-management/models"
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/models"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 )
 
 type PlaylistUsecase struct {
@@ -68,6 +68,7 @@ func (p *PlaylistUsecase) CreatePlaylist() ([]string, string) {
 	newPlaylist := &models.Playlist{
 		ID: p.helper.GenerateID(),
 		Name: name,
+		Tracks: []string{},
 		Duration: duration,
 	}
 
@@ -114,6 +115,7 @@ func (p *PlaylistUsecase) UpdatePlaylist() ([]string, string) {
 	newPlaylist := &models.Playlist{
 		ID: id,
 		Name: name,
+		Tracks: []string{},
 		Duration: duration,
 	}
 
@@ -131,14 +133,14 @@ func (p *PlaylistUsecase) UpdatePlaylist() ([]string, string) {
 	return output, ""
 }
 
-func (p *PlaylistUsecase) AddSongToPlaylist() string {
-	return "Add Song to Playlist"
+func (p *PlaylistUsecase) AddTrackToPlaylist() ([]string, string) {
+	return nil, ""
 }
 
-func (p *PlaylistUsecase) RemoveSongFromPlaylist() string {
+func (p *PlaylistUsecase) RemoveTrackFromPlaylist() string {
 	return "Remove Song from Playlist"
 }
 
-func (p *PlaylistUsecase) GetSongsFromPlaylist() string {
+func (p *PlaylistUsecase) GetTracksFromPlaylist() string {
 	return "Get Songs from Playlist"
 }

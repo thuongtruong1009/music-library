@@ -1,14 +1,14 @@
 package cmd
 
 import (
-	"music-management/pkg/helpers"
-	"music-management/pkg/constants"
+	"music-management-system/pkg/helpers"
+	"music-management-system/pkg/constants"
 
-	"music-management/internal/tracks"
-	"music-management/internal/playlists"
-	"music-management/internal/albums"
-	"music-management/internal/artists"
-	"music-management/internal/genres"
+	"music-management-system/internal/tracks"
+	"music-management-system/internal/playlists"
+	"music-management-system/internal/albums"
+	"music-management-system/internal/artists"
+	"music-management-system/internal/genres"
 )
 
 type Delivery struct {
